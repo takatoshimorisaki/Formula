@@ -1,5 +1,7 @@
 package mori.formula;
 
+import static java.lang.System.out;
+
 public class Main implements Runnable{
 	
 	private mori.LogService.C_LogService mLog;
@@ -31,7 +33,9 @@ public class Main implements Runnable{
 			String req = mLog.mGetReq();
 			
 			if(req != null){
-				mParser.add(req);
+				String rtn = mParser.add(req);
+				
+				out.println("ans:" + rtn);
 			}
 			
 			try{
