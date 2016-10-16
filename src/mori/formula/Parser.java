@@ -1,32 +1,19 @@
 package mori.formula;
 
 import static java.lang.System.out;
-
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
-public class Parser extends mori.Lie.Lie {
+public class Parser{
 	
 	private static String mCharSet = "UTF-8"; // "US-ASCII"; // "UTF-8";
 	
-	private static mori.Lie.Command.I_Command mBracketCmd = new mori.Lie.Command.BracketParser();
-
-	private static mori.Lie.Command.I_Command mExpandCmd = new mori.Lie.Command.ExpandCmd();
-	
-	private static mori.Lie.Command.I_Command mEquationCheckCmd = new mori.Lie.Command.EquationCheckCmd();
-	
-	private static mori.Lie.Command.I_Command mMultiplyCmd = new mori.Lie.Command.MultiplyCmd();
-	
-	private static mori.Lie.Command.I_Command mDelCmd = new mori.Lie.Command.DelCmd();
-	
-	private static mori.Lie.Command.I_Command mDetailCmd = new mori.Lie.Command.DetailCmd();
-	
-	private static mori.Lie.Command.I_Command mAddCmd = new mori.Lie.Command.AddCmd();
+	private TokenParser mTokenParser = new TokenParser();
 	
 	public Parser(){
 		
-		this.read();
+		//// this.read();
 	}
 	
 	public void add(String arg){
@@ -36,54 +23,16 @@ public class Parser extends mori.Lie.Lie {
 			
 			if(msg.length() == 0){
 				// nothig to do.
-			}else
-			if(msg.startsWith("token") == true){
-				
-				mTokens.add( msg.substring(5) );
-			}else
-			if(msg.indexOf("=") > 0){
-				
-				mEquations.add(msg);
-				
-			}else
-			if(msg.indexOf("*") > 0){
-				
-				mMultiplyCmd.mExe(msg);
-				
-			}else
-			if(msg.indexOf("+") > 0){
-				
-				mAddCmd.mExe(msg);
-				
-			}else
-			if(msg.startsWith("check") == true){
-					
-				mEquationCheckCmd.mExe(arg);
-				
-			}else
-			if(msg.startsWith("expand") == true){
-				
-				mExpandCmd.mExe(arg);
-
-			}else
-			if(msg.startsWith("del") == true){
-				
-				mDelCmd.mExe(arg);
-				
-			}else
-			if(msg.startsWith("list") == true){
-				
-				mEquations.mList();
-				
-			}else
-			if(msg.startsWith("detail") == true){
-				
-				mDetailCmd.mExe(arg);
-				
 			}else{
 				
-				mBracketCmd.mExe(arg);
+				int size = msg.length();
 				
+				for(int id = 0; id < size; id++){
+					
+					String token = msg.substring(id,  id+1);
+					
+					mTokenParser.mExe(token);
+				}
 			}
 		}catch(Exception ex){
 			
