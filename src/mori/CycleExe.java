@@ -18,7 +18,7 @@ public class CycleExe {
 			System.err.println(ex);
 		}
 		
-		mori.Lie.Main lieMain = new mori.Lie.Main(log);
+		mori.formula.Main lieMain = new mori.formula.Main(log);
 		
 		lieMain.mStartService();
 	}
