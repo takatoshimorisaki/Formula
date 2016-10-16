@@ -39,59 +39,59 @@ public class TokenParser {
 			
 		}else
 		if(token.equals("+")){
+
+			mAddNumberNode();
 			
 			mStrBuf.append(token);
 			
 			mNodeType0 = ADD_NODE;
-			
-			mAddNumberNode();
 			
 			mAddNode();
 			
 		}else
 		if(token.equals("-")){
 
+			mAddNumberNode();
+			
 			mStrBuf.append(token);
 			
 			mNodeType0 = SUB_NODE;
 
-			mAddNumberNode();
-			
 			mAddNode();
 			
 		}else
 		if(token.equals("*")){
 
+			mAddNumberNode();
+
 			mStrBuf.append(token);
 			
 			mNodeType0 = MULTI_NODE;
-
-			mAddNumberNode();
 
 			mAddNode();
 			
 		}else
 		if(token.equals("/")){
 
+			mAddNumberNode();
+
 			mStrBuf.append(token);
 			
 			mNodeType0 = DIV_NODE;
-
-			mAddNumberNode();
 
 			mAddNode();
 			
 		}else
 		if(token.equals("(")){
 
+			mAddNumberNode();
+			
 			mStrBuf.append(token);
 			
 			mNodeType0 = PARENTHESIS_NODE;
 			
 			mParenthesisDepth++;
 
-			mAddNumberNode();
-			
 		}else
 		if(token.equals(")")){
 
@@ -108,11 +108,12 @@ public class TokenParser {
 	
 	private void mAddNumberNode(){
 		
-		if(mNodeType1 == NUMBER_NODE){
+		if(mNodeType1 == NUMBER_NODE
+		&& mParenthesisDepth == 0){
 			
 			mRoot.add(mStrBuf.toString(), NUMBER_NODE);
 			
-			mStrBuf = null;
+			mStrBuf = new StringBuffer();
 		}
 	}
 	

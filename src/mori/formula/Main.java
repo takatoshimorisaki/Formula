@@ -15,8 +15,6 @@ public class Main implements Runnable{
 		mori.LogService.C_LogService log
 	){
 		mLog = log;
-		
-		mParser = new Parser();
 	}
 	
 	public void mStartService(){
@@ -33,6 +31,9 @@ public class Main implements Runnable{
 			String req = mLog.mGetReq();
 			
 			if(req != null){
+
+				mParser = new Parser();
+				
 				String rtn = mParser.add(req);
 				
 				out.println("ans:" + rtn);

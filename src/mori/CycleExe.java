@@ -2,9 +2,6 @@ package mori;
 
 import mori.LogService.C_LogService;
 
-/*
- * 
- */
 public class CycleExe {
 
 	public static void main(String[] args){

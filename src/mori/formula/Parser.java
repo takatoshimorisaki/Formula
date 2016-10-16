@@ -9,7 +9,7 @@ public class Parser{
 	
 	private static String mCharSet = "UTF-8"; // "US-ASCII"; // "UTF-8";
 	
-	private TokenParser mTokenParser = new TokenParser();
+	private TokenParser mTokenParser;
 	
 	public Parser(){
 		
@@ -18,6 +18,8 @@ public class Parser{
 	
 	public String add(String arg){
 		
+		mTokenParser = new TokenParser();
+				
 		try{
 			String msg = arg.trim();
 			

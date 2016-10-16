@@ -1,5 +1,6 @@
 package mori.formula;
 
+import static java.lang.System.out;
 import java.util.Vector;
 
 public class Node {
@@ -45,8 +46,46 @@ public class Node {
 		
 		mNodeType = aNodeType;
 	}
+
+	private String mToString(int aNodeType){
+	
+		if(aNodeType == NULL_NODE){
+			
+			return "NULL_NODE";
+			
+		}else if(aNodeType == NUMBER_NODE){
+			
+			return "NUMBER_NODE";
+			
+		}else if(aNodeType == ADD_NODE){
+			
+			return "ADD_NODE";
+			
+		}else if(aNodeType == SUB_NODE){
+			
+			return "SUB_NODE";
+			
+		}else if(aNodeType == MULTI_NODE){
+			
+			return "MULTI_NODE";
+			
+		}else if(aNodeType == DIV_NODE){
+			
+			return "DIV_NODE";
+			
+		}else if(aNodeType == PARENTHESIS_NODE){
+			
+			return "PARENTHESIS_NODE";
+			
+		}else{
+			
+			return null;
+		}
+	}
 	
 	public void add(String aValue, int aNodeType){
+		
+		out.printf("Node add %s type %s\n", aValue, mToString(aNodeType));
 		
 		Node node = new Node(aValue, aNodeType);
 		
