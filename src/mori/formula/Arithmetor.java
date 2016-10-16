@@ -1,5 +1,6 @@
 package mori.formula;
 
+import static java.lang.System.out;
 import static mori.formula.Node.*;
 
 public class Arithmetor {
@@ -12,6 +13,8 @@ public class Arithmetor {
 		String leftStr = aLeftNode.mParse();
 		
 		String rightStr = aRightNode.mParse();
+		
+		out.printf("%s:%s:%s\n", leftStr, Node.mToString(aNodeType), rightStr);
 		
 		double leftValue = Double.parseDouble(leftStr);
 		

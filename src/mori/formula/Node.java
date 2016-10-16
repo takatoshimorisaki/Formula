@@ -20,10 +20,10 @@ public class Node {
 	public final static int PARENTHESIS_NODE = 6;
 	
 	private final static int[] mOperatorPriority = {
-			DIV_NODE,
-			MULTI_NODE,
 			ADD_NODE,
-			SUB_NODE
+			SUB_NODE,
+			MULTI_NODE,
+			DIV_NODE
 	};
 	
 	public int mNodeType;
@@ -47,7 +47,7 @@ public class Node {
 		mNodeType = aNodeType;
 	}
 
-	private String mToString(int aNodeType){
+	public static String mToString(int aNodeType){
 	
 		if(aNodeType == NULL_NODE){
 			
