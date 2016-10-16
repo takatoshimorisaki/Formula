@@ -16,13 +16,14 @@ public class Parser{
 		//// this.read();
 	}
 	
-	public void add(String arg){
+	public String add(String arg){
 		
 		try{
 			String msg = arg.trim();
 			
 			if(msg.length() == 0){
-				// nothig to do.
+				
+				return null;
 			}else{
 				
 				int size = msg.length();
@@ -33,11 +34,17 @@ public class Parser{
 					
 					mTokenParser.mExe(token);
 				}
+				
+				String ans = mTokenParser.mParse();
+				
+				return ans;
 			}
 		}catch(Exception ex){
 			
 			ex.printStackTrace();
 		}
+		
+		return null;
 	}
 	
 	private void read(){
